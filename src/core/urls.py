@@ -1,6 +1,7 @@
 from django.urls import path
-from core.views import PostListCreateAPI
+from core.views import PostListCreateAPI, PostRetrieveUpdateDestroy
 
 urlpatterns = [
-    path("posts/", PostListCreateAPI.as_view()),
+    path("", PostListCreateAPI.as_view()),
+    path("<int:id>/", PostRetrieveUpdateDestroy.as_view()),
 ]
