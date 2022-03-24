@@ -1,6 +1,6 @@
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from core.models import Post, Comment
-from core.serializers import PostSerializer, CommentSerializer
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, CreateAPIView
+from core.models import Post, Comment, Upvote
+from core.serializers import PostSerializer, CommentSerializer, UpvoteSerializer
 
 class PostListCreateAPI(ListCreateAPIView):
     queryset = Post.objects.all()
@@ -18,7 +18,12 @@ class CommentListCreateAPI(ListCreateAPIView):
     serializer_class = CommentSerializer
 
 
-class CommentRetrieveUpdateDestroyAPI(ListCreateAPIView):
+class CommentRetrieveUpdateDestroyAPI(RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     lookup_field = "id"
+
+
+class UpvoteCreateAPI(CreateAPIView):
+    queryset = Upvote.objects.all()
+    serializer_class = UpvoteSerializer
