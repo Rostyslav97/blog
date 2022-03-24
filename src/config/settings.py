@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,7 +14,7 @@ SECRET_KEY = 'django-insecure--ylfnh)@s78l=7&ka6y$4_$w!!(r$5(b&177_&yo3yf_s1s%%-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0']
 
 
 # Application definition
@@ -68,11 +69,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'posts',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.getenv("POSTGRES_DB", default='postgres'),
+        'USER': os.getenv("POSTGRES_USER", default='postgres'),
+        'PASSWORD': os.getenv("POSTGRES_PASSWORD", default='postgres'),
+        'HOST': os.getenv("POSTGRES_HOST", default='postgres'),
+        'PORT': os.getenv("POSTGRES_PORT", default=5432),
     }
 }
 

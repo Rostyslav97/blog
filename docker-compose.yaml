@@ -1,0 +1,25 @@
+version: "3"
+
+
+services:
+  django:
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+    image: test_task_django
+    container_name: test_task_django
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    volumes:
+      - ./src:/app/src
+
+
+  postgres:
+    image: postgres:13.3
+    ports:
+      - "7000:7000"
+    env_file: ".env"
