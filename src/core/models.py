@@ -12,11 +12,13 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+
 class Comment(models.Model):
     post = models.ForeignKey("Post", null=False, blank=False, on_delete=models.CASCADE)
     author_name = models.ForeignKey(settings.AUTH_USER_MODEL, null=False, blank=False, on_delete=models.CASCADE)
     content = models.TextField()
     creation_date = models.DateTimeField(auto_now_add=True)
+
 
 class Upvote(models.Model):
     post = models.ForeignKey("Post", null=False, blank=False, on_delete=models.CASCADE)

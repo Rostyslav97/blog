@@ -26,4 +26,19 @@ docker-compose up -d
 # Black
 pip install black
 python -m black
+
+# Flake8
+flake8 .
 ```
+
+## Postman
+### Links: 
+http://0.0.0.0:8000/posts/
+
+http://0.0.0.0:8000/posts/id/
+
+http://0.0.0.0:8000/comments/
+
+http://0.0.0.0:8000/comments/id/
+
+http://0.0.0.0:8000/upvote/

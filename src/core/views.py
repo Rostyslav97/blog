@@ -2,6 +2,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from core.models import Post, Comment, Upvote
 from core.serializers import PostSerializer, CommentSerializer, UpvoteSerializer
 
+
 class PostListCreateAPI(ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
