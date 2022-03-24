@@ -1,7 +1,9 @@
 from django.urls import path
-from core.views import PostListCreateAPI, PostRetrieveUpdateDestroy
+from core.views import PostListCreateAPI, PostRetrieveUpdateDestroyAPI, CommentListCreateAPI, CommentRetrieveUpdateDestroyAPI
 
 urlpatterns = [
-    path("", PostListCreateAPI.as_view()),
-    path("<int:id>/", PostRetrieveUpdateDestroy.as_view()),
+    path("posts/", PostListCreateAPI.as_view()),
+    path("posts/<int:id>/", PostRetrieveUpdateDestroyAPI.as_view()),
+    path("comments/", CommentListCreateAPI.as_view()),
+    path("comments/<int:id>/", CommentRetrieveUpdateDestroyAPI.as_view()),
 ]
