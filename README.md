@@ -24,4 +24,6 @@ docker-compose up -d
 ## Formatting code
 ```bash
 # Black
+pip install black
 python -m black
+```
