@@ -28,6 +28,7 @@ pip install black
 python -m black
 
 # Flake8
+pip install flake8.
 flake8 .
 ```
 
